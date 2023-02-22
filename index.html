@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+    let choices = ["rock", "paper" , "scissors"]
+    let computerChoice;
+    let playerChoice;
+    let computerScore = 0;
+    let playerScore = 0; 
+
+    function game(){
+        for (let i = 0; i < 5; i++) {
+                computerChoice = getComputerChoice();
+                playerChoice = getPlayerChoice();
+                playRound(playerChoice, computerChoice)
+            }
+        if (playerScore > computerScore){
+            alert("You win this best of 5!");
+        }
+        else if (playerScore < computerScore){
+            alert("You lose this best of 5")
+        }
+        else if (playerScore === computerScore){
+            alert("Its a draw");}
+        else return 
+        }
+    
+    game()
+
+
+    function getComputerChoice() {
+        let randomNumber = Math.floor(Math.random() * 3);
+        let computerChoice = choices[randomNumber];
+        return computerChoice
+        
+    }
+
+    function getPlayerChoice() {
+        let playerChoice = prompt("Rock, Paper or Scissors? What will it be?").toLowerCase()
+        return playerChoice
+    }
+
+    function playRound(playerChoice, computerChoice ){
+        if (playerChoice === "rock" && computerChoice === "scissors"){
+            alert(" Computer chose Scissors! You win this round")
+            playerScore++
+        }
+        else if (playerChoice === "rock" && computerChoice ==="paper"){
+            alert("Computer chose Paper! You lose this round");
+            computerScore++
+        }
+        else if (playerChoice === "scissors" && computerChoice === "paper"){
+            alert("Computer chose Paper! You win this round")
+            playerScore++
+        }
+        else if (playerChoice === "scissors" && computerChoice === "rock"){
+            alert(" Computer chose Rock! You lose this round");
+            computerScore++
+        }
+        else if (playerChoice === "paper" && computerChoice === "rock"){
+            alert("Computer chose Rock! You win this round")
+            playerScore++
+        }
+        else if (playerChoice === "paper" && computerChoice === "scissors"){
+            alert("Computer chose Scissors! You lose this round");
+            computerScore++
+        }
+        else if (playerChoice === computerChoice){
+            alert(`Computer chose ${computerChoice}! Its a tie`)
+        }
+        else {
+            alert("You did not use a rock, a piece a paper or some handy scissors")
+        }
+}
+
+
+
+</script>
+
+</html>
